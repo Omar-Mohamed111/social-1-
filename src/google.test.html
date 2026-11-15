@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google Login Test</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+    <div id="button"></div>
+
+    <script>
+        window.onload = () => {
+            google.accounts.id.initialize({
+                client_id: "514664088801-hr7nhtior9pll4kmca2h0qm73uqh061r.apps.googleusercontent.com",
+                callback: (response) => {
+                    console.log("Google ID Token:", response.credential);
+                },
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementById("button"),
+                {
+                    theme: "outline",
+                    size: "large",
+                },
+            );
+        };
+    </script>
+</body>
+
+</html>
